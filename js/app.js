@@ -1,3 +1,7 @@
+// el problema a resolver
+
+// analisis
+
 // Elegir zapatos de fiesta
 // 1. INICIO
 // 2. Entrar a la tienda y buscar la sección de zapatos de caballero.
