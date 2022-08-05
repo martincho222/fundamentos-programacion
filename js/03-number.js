@@ -11,3 +11,4 @@ let number1 = 10.2;
 // console.log(Math.ceil(number1))// devuelve el valor maximo entero mayor o igual
 // console.log(Math.round(number1)); //este metodo retorna el valor entero rendondeado 
 // console.log(Math.pow(2, 5)); // retorna la base elevada a la N potencia.
+
