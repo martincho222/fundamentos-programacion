@@ -5,7 +5,7 @@
 let ciudades = [];
 let nombre;
 
-while(nombre != "0"){     
+while(nombre != "0" ){     
     nombre = prompt("ingrese el nombre de una ciudad ó 0(cero para salir)");   
     ciudades.push(nombre);    
 }
