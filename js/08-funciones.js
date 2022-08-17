@@ -48,6 +48,43 @@
 
 // algo();
 
+// const fecha = function() {
+//     return new Date().getMinutes();
+// }
+// console.log(fecha())
+
+// Arrow functions
+// const newDate = () => {
+//     return new Date();
+// }
+// console.log(newDate());
+
+// callbacks
+// son funciones que se pasan como parametro o argumento a otra y se ejecutan dentro del cuerpo de la funcion que la esta recibiendo
+
+// const saludo = function() {
+//     return console.log("hola")
+// }
+
+// const generarSaludo = (callback) => {
+//     return callback();
+// }
+
+// generarSaludo(saludo)
+
+// const callback = function(a, b) {
+//     return console.log(a+b);
+// }
+
+
+// const generarSumas = function(callback) { 
+//     const a = 10;
+//     const b = 20;
+//     return callback(a, b);
+// }
+
+// generarSumas(callback);
+
 // SECUENCIA FIBONACCI
 // 0, 1, 1, 2, 3, 5, 8......  
 
@@ -61,3 +98,105 @@
 // }
 
 // fibonacchi(50)
+
+
+// funciones de tiempo
+// setTimeout
+
+// setTimeout(function(){
+//     console.log("hola")
+// }, 5000);
+// console.log("Hola mundo")
+
+// setInterval
+
+// const intervalo = setInterval(function(){
+//     console.log("Hola a todos")
+// }, 1000);
+
+// setTimeout(function(){
+//     clearInterval(intervalo);
+// } , 5000);
+
+// setInterval(() => {
+//     console.log(new Date().getSeconds())
+// }, 1000);
+
+// const test = 1;
+// function isThis(test) {
+//     console.log(this.console.log(test));
+// }
+
+// isThis(test);
+
+
+// Caso 1
+
+// En el primer caso this está siendo invocado dentro de un método.
+// let yo = {
+//     nombre:"yeison",
+//     edad: 22,
+//     hablar: function () {
+//       console.log(this.nombre);
+//     }
+//   };
+  
+//   yo.hablar();
+// this, hace referencia al objeto, que contiene el método donde se invoca.
+
+// caso 2
+
+// En este caso, existe una función que recibe un objeto como parámetro, y le agrega el método hablar, luego, se ejecuta la función sobre dos objetos.
+
+// let decirNombre = function(obj) {
+//     obj.hablar = function() {
+//     console.log(this.nombre);
+//     };
+//   };
+  
+//   const Mateo = {
+//     nombre: "Mateo",
+//     edad: 22
+//   };
+  
+//   const juan = {
+//     nombre: "Juan",
+//     edad: 25
+//   };
+  
+//   decirNombre(juan);
+//   decirNombre(Mateo);
+  
+//   juan.hablar(); // Juan
+//   Mateo.hablar(); // Mateo
+
+// This en este caso hace referencia al objeto que se añade este método.
+
+// Caso 3
+
+// En este caso tenemos una función que retorna un objeto, que contiene un método hablar, que invoca this.
+
+// let Persona = function (nombre, edad, madre) {
+//     return {
+//       nombre: nombre,
+//       edad: edad,
+//       hablar: function() {
+//         console.log(this.nombre);
+//       },
+//       madre: {
+//         nombre: madre,
+//         hablar: function() {
+//           console.log(this.nombre);
+//         }
+//       }
+//     };
+//   };
+  
+//   const ana = Persona("Ana", 30, "Clara");
+  
+//   ana.hablar(); // Ana
+//   ana.madre.hablar(); // Clara
+
+// const executeSweetAlert = () => {
+//     Swal.fire('Any fool can use a computer')
+// }

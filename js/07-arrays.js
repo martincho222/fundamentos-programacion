@@ -1,6 +1,6 @@
 // ARRAYS
 
-const alumnos = ["Conti", "Agus", "Carlos", "Lucia", "Lucia", "Lucases"];
+// const alumnos = ["Conti", "Agus", "Carlos", "Lucia", "Lucia", "Lucases"];
 // const arrayVacio = [];
 // console.log(array[]);
 
@@ -61,3 +61,78 @@ const alumnos = ["Conti", "Agus", "Carlos", "Lucia", "Lucia", "Lucases"];
 
 
 // console.log(alumnos);
+
+// const arrayLucaces = ["Lucas Obejeros", "Lucas Araoz", "Lucas Luna"];
+
+// METODO MAP
+// es un metodo que devuelve un nuevo array con la condicion realizada dentro del callback
+// console.log(arrayLucaces.map((luca) => {
+//     if(luca.includes("Lucas Obejeros")){
+//         return luca.toUpperCase();
+//     }
+//     return luca;
+// }))
+
+// // forEach
+// console.log(arrayLucaces.forEach(function(luca) {
+//     console.log(luca)
+//     // if(luca.includes("Lucas Luna")){
+//     //     return luca
+//     // }
+// }))
+
+// metodo find
+// const numbers = [1,2,3,67,34,200,15, 14];
+
+// const findNumber = numbers.find(function(number){
+//     return number > 10
+// });
+
+// console.log(findNumber)
+
+// filter
+// const palabras = ["hola", "rolling", "pikachu", "bariloche", "milanesa", "sambuchito", "canelones", "aaaaaaaaaaaaa"];
+
+// const resultado = palabras.filter(function(palabra){
+//     return palabra.length > 8
+// });
+
+// console.log(resultado);
+
+/*
+1- Crear un script que solicite al usuario mediante un prompt el nombre de ciudades y almacenarlas en un arreglo, cuando el usuario seleccione cancelar o ingrese el valor “0” se debe mostrar el arreglo generado, luego realizar las siguientes acciones:
+
+Mostrar la longitud del arreglo.
+Mostrar en el documento web los ítems de las posiciones primera, tercera y última.
+Añade en última posición la ciudad de París.
+Escribe por pantalla el elemento que ocupa la segunda posición.
+Sustituye el elemento que ocupa la segunda posición por la ciudad de 'Barcelona'.
+*/
+
+let ciudades = [];
+
+let ciudad = prompt('Ingrese el nombre de una ciudad');
+
+while(ciudad !== null && ciudad !== '0'){
+    if(ciudad !== ""){
+        ciudades.push(ciudad)
+    }
+    ciudad = prompt('Ingrese el nombre de una ciudad');
+
+}
+console.log(ciudades)
+console.log(`Cantidad de elementos en el arreglo: ${ciudades.length}`);
+
+// primera posicion 0
+// tercera posicion 2
+// ultima posicion ciudades.length - 1
+document.write(`1- ${ciudades[0]}<br>`);
+document.write(`3- ${ciudades[2]}<br>`);
+document.write(`ultima- ${ciudades[ciudades.length - 1]}<br>`);
+
+// añadar Paris a la ultima posicion
+ciudades.push("París");
+
+document.write(`${ciudades[1]} ocupa la segunda posicion en el arreglo<br>`);
+
+ciudades.splice(1,1, "Barcelona");
