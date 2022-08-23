@@ -43,16 +43,17 @@
 //    console.log(`${key}: ${auto[key]}`)
 // }
 
-let alumnos = [
-    {nombre: "Clemente", edad: 22},
-    {nombre: "Constanza", edad: 24},
-    {nombre: "Sra Tutora", edad: "35"}
-];
+// let alumnos = [
+//     {nombre: "Clemente", edad: 22},
+//     {nombre: "Constanza", edad: 24},
+//     {nombre: "Sra Tutora", edad: "35"}
+// ];
 
-// alumnos.forEach(function(alumno){
-//     return console.log(`Hola Soy ${alumno.nombre} y tengo ${alumno.edad} años`)
-// })
+// // alumnos.forEach(function(alumno){
+// //     return console.log(`Hola Soy ${alumno.nombre} y tengo ${alumno.edad} años`)
+// // })
 
-for(let i = 0; i < alumnos.length; i++){
-    console.log(`Nombre: ${alumnos[i].nombre} - edad: ${alumnos[i].edad}`);
-}
+// for(let i = 0; i < alumnos.length; i++){
+//     console.log(`Nombre: ${alumnos[i].nombre} - edad: ${alumnos[i].edad}`);
+// }
+
