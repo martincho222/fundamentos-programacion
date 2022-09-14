@@ -22,12 +22,13 @@ console.log(usuarios);
 // Crear una clase usuario con los datos que deberia ingresar.
 
 class Usuario {
-  constructor(id, nombre, email, password, isAdmin = false) {
+  constructor(id, nombre, email, password, isAdmin = false, isLogged = false) {
     this.id = id;
     this.nombre = nombre;
     this.email = email;
     this.password = password;
     this.isAdmin = isAdmin;
+    this.isLogged = isLogged;
   }
 }
 
@@ -110,4 +111,76 @@ formSignUp.addEventListener("submit", (e) => {
 // window.location.href = "index.html";
 });
 
-// funcionalidad de login
+// funcionalidad de login o inicio de sesion
+
+formLogin.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const email = document.getElementById("email-login").value;
+  const password = document.getElementById("password-login").value;
+  const errorLogin = document.querySelector(".error-login");
+  errorLogin.innerHTML = "";
+  // validar que los campos no esten vacios
+  if(email === "" || password === ""){
+    errorLogin.innerHTML = "Debes ingresar un email y una contraseña";
+    errorLogin.style.display = "block";
+    errorLogin.style.padding = "10px";
+    errorLogin.style.marginTop = "10px";
+    errorLogin.style.color = "white";
+    errorLogin.style.borderRadius = "10px";
+    errorLogin.style.backgroundColor = "red";
+    return;
+  }
+  // validar si existe un usuario con el mismo mail
+  const validarEmail = usuarios.find((usuario) => {
+    return usuario.email === email && usuario.password === password
+  });
+  if(validarEmail === undefined) {
+    Swal.fire({
+      position: "center",
+      icon: "warning",
+      title: "Usuario o contraseña son incorrectos",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    document.getElementById("login").reset();
+    document.getElementById("email-login").focus();
+    return;
+  }
+
+  // validar el usuario existente y lo guardamos en local storage como logueado
+  validarEmail.isLogged = true;
+  localStorage.setItem("usuarioLogueado", JSON.stringify(validarEmail));
+  formLogin.reset();
+  Swal.fire({
+    position: "center",
+    icon: "success",
+    title: "Bienvenido!",
+    showConfirmButton: false,
+    timer: 1500,
+  });
+  // si quiero redireccionar a otra seccion utilizo el siguiente codigo
+  // window.location.href = "../index.html";
+})
+
+// funcion para cerrar sesion
+const logout = () => {
+  let usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
+  console.log(usuarioLogueado);
+  // usuarioLogueado.isLogged = false;
+  // localStorage.setItem("usuarioLogueado", JSON.stringify(usuarioLogueado))
+  // if(usuarioLogueado !== undefined) {
+  //   localStorage.removeItem("usuarioLogueado")
+  // }
+}
+
+// cambiar a el role de admin
+// const cambiarRole = () => {
+//   const usuario = usuarios.find((usuario) => {
+//     return usuario.email === "martincho111986@gmail.com";
+//   })
+//   usuario.isAdmin = true;
+//   localStorage.setItem("usuarioLogueado", JSON.stringify(usuario))
+//   console.log(usuario)
+// }
+
+// cambiarRole()
