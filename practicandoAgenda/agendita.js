@@ -60,7 +60,48 @@ function updateAgenda(){
     document.querySelector("#telefText").value = "";
     document.querySelector("#nombreText").focus();
     agenda = JSON.parse(localStorage.getItem("agenda"));
-    contarRegistro();
-    cargarTabla();
+    contarRegistro(agenda);
+    cargarTabla(agenda);
 }
+
+function cargarTabla(array){
+    
+    document.querySelector("#cuerpoTabla").innerHTML = "";
+    array.forEach(function(elemento, index){
+        let fila = document.createElement("tr");
+        fila.classList = "text-center";
+        let datos = `
+            <td>${elemento.nombre}</td>
+            <td>${elemento.telefono}</td>
+            <td>
+                <button class="btn btn-danger" onclick='deleteContact(${index})'> X </button>
+            </td>
+        `;
+        fila.innerHTML = datos;
+        let cuerpo = document.querySelector("#cuerpoTabla");
+        cuerpo.appendChild(fila);
+    });
+
+
+}
+
+function deleteContact(idx){
+    agenda = JSON.parse(localStorage.getItem("agenda"));
+
+    let index = agenda.findIndex((contacto) => {
+        return contacto.nombre = agenda[idx].nombre;
+
+    })
+
+    let validar = confirm(`Estas seguro que querés borrar a ${agenda[index].nombre}?`)
+
+    if(validar){
+        agenda.splice(index, 1);
+        localStorage.setItem("agenda", JSON.stringify(agenda));
+        updateAgenda();
+    }
+}
+
+cargarTabla(agenda);
+contarRegistro(agenda);
 
