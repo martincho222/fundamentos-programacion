@@ -105,3 +105,19 @@ function deleteContact(idx){
 cargarTabla(agenda);
 contarRegistro(agenda);
 
+// no entiendo esta funcion linea 114!! ademas que no funciona !
+
+function filterTabla(){
+    let text = document.querySelector("#textBuscar");
+    agenda = JSON.parse(localStorage.getItem("agenda"));
+    agendaFiltrada = agenda.filter((contacto) => {
+        return contacto.nombre.toLowerCase().indexOf(text.toLowerCase()) > -1;
+    })
+
+    console.log(agendaFiltrada);
+    document.querySelector("#textBuscar").value = "";
+    document.querySelector("#textBuscar").focus();
+    contarRegistro(agendaFiltrada);
+    cargarTabla(agendaFiltrada);
+
+}
