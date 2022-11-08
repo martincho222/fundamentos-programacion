@@ -12,7 +12,7 @@ export default function WeatherMainInfo({ weather }) {
           alt={weather?.current.condition.text}
         ></img>
       </div>
-      <div className={styles.weatherConditions}>
+      <div>
         <div className={styles.condition}>{weather?.current.condition.text}</div>
         <div className={styles.current}>{weather?.current.temp_c}°</div>
       </div>
